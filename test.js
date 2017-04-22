@@ -1,6 +1,7 @@
 const mocha = require('mocha');
 const chai = require('chai');
 chai.should();
+const debug = require('debug')('trycatch');
 
 const { trycatch, notrycatch} = require('./main');
 
@@ -32,6 +33,7 @@ describe('with try catch', () => {
     const noTryDur = noTryEnd[0]*10e6 + noTryEnd[1];
 
     noTryDur.should.be.below(tryDur);
+
     console.log(`After ${ITERATIONS} try duration - notry duration ${(tryDur - noTryDur)/10e6} seconds`);
 
   })
@@ -59,8 +61,8 @@ describe('with try catch', () => {
     const tryDur = tryEnd[0]*10e6 + tryEnd[1];
     const noTryDur = noTryEnd[0]*10e6 + noTryEnd[1];
 
-    noTryDur.should.be.below(tryDur);
     console.log(`After ${ITERATIONS} try duration - notry duration ${(tryDur - noTryDur)/10e6} seconds`);
+    noTryDur.should.be.below(tryDur);
 
   })
 })

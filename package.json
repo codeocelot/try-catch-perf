@@ -5,6 +5,7 @@
   "license": "MIT",
   "dependencies": {
     "chai": "^3.5.0",
+    "debug": "^2.6.4",
     "mocha": "^3.2.0"
   }
 }
